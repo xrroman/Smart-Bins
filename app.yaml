@@ -1,0 +1,8 @@
+name: MicroWasteAnimals
+description: This example showcases object detection within a live feed from a USB camera.
+ports: []
+bricks:
+- arduino:video_object_detection:
+    model: ei-model-991365-1
+- arduino:web_ui: {}
+icon: 📽️
