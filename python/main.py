@@ -13,6 +13,8 @@ from datetime import datetime, UTC
 
 App.run()
 
+
+
 """
 ui = WebUI()
 detection_stream = VideoObjectDetection(confidence=0.5, debounce_sec=0.0)

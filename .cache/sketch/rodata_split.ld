@@ -8,6 +8,8 @@ SECTIONS
     .rodata : {
         *(.rodata._ZL12arduino_pins)
         *(.rodata._ZTV13BridgeMonitorILj512EE)
+        *(.rodata._ZTV14ModulinoBuzzer)
+        *(.rodata._ZTV14ModulinoPixels)
         *(.rodata._ZTV15SerialTransport)
         *(.rodata._ZTV16ModulinoDistance)
         *(.rodata._ZTV8VL53L4CD)
@@ -29,6 +31,7 @@ SECTIONS
         *(.rodata._ZN11BridgeClass11update_safeEv.str1.1)
         *(.rodata._ZN11BridgeClass5beginEm.str1.1)
         *(.rodata._ZN13BridgeMonitorILj512EE5_readEj.str1.1)
+        *(.rodata._ZN13BridgeMonitorILj512EE5beginEmt.isra.0.str1.1)
         *(.rodata._ZN13BridgeMonitorILj512EE5writeEPKhj.str1.1)
         *(.rodata._ZN7RpcCallIJEE6resultIbEEbRT_.part.0.str1.1)
         *(.rodata._ZN7RpcCallIJEEC2ERKN7arduino6StringEP9RPCClientP7k_mutexS8_.str1.1)
@@ -36,7 +39,6 @@ SECTIONS
         *(.rodata._ZN7arduino7msgpack6object3extC2EaPKhj.str1.1)
         *(.rodata._ZN8RpcErrorC2Ev.str1.1)
         *(.rodata._ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.str1.1)
-        *(.rodata.setup.str1.1)
         *(.rodata.str1.1)
     }
 

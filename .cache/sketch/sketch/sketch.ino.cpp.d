@@ -343,4 +343,6 @@
  /home/arduino/.arduino15/internal/Arduino_HS300x_1.0.0_182fd7848a9f4724/Arduino_HS300x/src/Arduino_HS300x.h \
  /home/arduino/.arduino15/internal/Arduino_HS300x_1.0.0_182fd7848a9f4724/Arduino_HS300x/src/HS300x.h \
  /home/arduino/.arduino15/internal/Arduino_LTR381RGB_1.0.1_8e2ef512ad15494c/Arduino_LTR381RGB/src/Arduino_LTR381RGB.h \
- /home/arduino/.arduino15/internal/Arduino_LTR381RGB_1.0.1_8e2ef512ad15494c/Arduino_LTR381RGB/src/LTR381RGB.h
+ /home/arduino/.arduino15/internal/Arduino_LTR381RGB_1.0.1_8e2ef512ad15494c/Arduino_LTR381RGB/src/LTR381RGB.h \
+ /home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/sketch/leds.h \
+ /home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/sketch/buzzer.h

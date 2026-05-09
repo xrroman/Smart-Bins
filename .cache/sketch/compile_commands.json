@@ -1508,11 +1508,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/Stream.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/String.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/api/Stream.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/api/String.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/Stream.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/String.cpp"
  },
  {
   "directory": "/",
@@ -1559,11 +1559,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/String.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/Stream.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/api/String.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/api/Stream.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/String.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/Stream.cpp"
  },
  {
   "directory": "/",
@@ -1696,11 +1696,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/new.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/main.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/new.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/new.cpp"
  },
  {
   "directory": "/",
@@ -1747,11 +1747,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/new.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/new.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/main.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/new.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp"
  },
  {
   "directory": "/",
