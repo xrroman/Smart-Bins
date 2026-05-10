@@ -3,35 +3,44 @@
 #include "distance.h"
 #include "leds.h"
 #include "buzzer.h"
+#include <Arduino_RouterBridge.h>
 
-int NUM_LOOP = 0;
+int lastMeasure = 0;
 
-#line 7 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+#line 8 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+int getMeasure();
+#line 9 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+void setBuzzer(int note, int duration);
+#line 10 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+void setAnimalLedFromPython(int on);
+#line 11 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+void setWasteLedFromPython(int colorCode);
+#line 13 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
 void setup();
-#line 16 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+#line 26 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
 void loop();
-#line 7 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+#line 8 "/home/arduino/ArduinoApps/microwasteanimals/sketch/sketch.ino"
+int getMeasure() { return lastMeasure; }
+void setBuzzer(int note, int duration) { playBuzz(note, duration); }
+void setAnimalLedFromPython(int on) { setAnimalLed(on == 1); }
+void setWasteLedFromPython(int colorCode) { setWasteLed(colorCode); }
+
 void setup() {
-  Serial.begin(9600);
   Monitor.begin();
   Modulino.begin();
+  Bridge.begin();
+  Bridge.provide("getMeasure",   getMeasure);
+  Bridge.provide("setBuzzer",    setBuzzer);
+  Bridge.provide("setAnimalLed", setAnimalLedFromPython);
+  Bridge.provide("setWasteLed",  setWasteLedFromPython);
   distance_init();
   leds_init();
   buzzer_init();
 }
 
 void loop() {
-  if( NUM_LOOP == 0) {
-      playBuzz(NOTE_C4, 5000);
+  if (distance.available()) {
+    lastMeasure = distance.get();
   }
-  int measure = getDistance();
-  if (measure < DIST_FULL) {
-      setLeds(RED, 100);    // Rojo fijo si está lleno
-  } else if (measure < DIST_MID) {
-      setLeds(YELLOW, 50);  // Amarillo fijo si está a medias
-  } else {
-      setLeds(GREEN, 20);   // Verde fijo si está vacío
-  }
-  NUM_LOOP += 1;
   delay(100);
 }
