@@ -3,7 +3,7 @@
 > Qualcomm Challenge · InterHack BCN
 > Intelligent, connected, and built to keep cities clean.
 
-![Dashboard](./assets/docs_assets/Dashboard-avanzado.png)
+![Dashboard](./assets/docs_assets/Dashboard-Avanzado.png)
 
 ## What is Smart-Bins?
 
