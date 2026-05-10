@@ -107,7 +107,7 @@ Lightweight **Express** server running on Railway. Holds bin state in memory and
 
 ## The Dashboard
 
-![Dashboard](./assets/docs_assets/Dashboard-avanzado.png)
+![Dashboard](./assets/docs_assets/Dashboard-Avanzando.png)
 ![Simple Dashboard](./assets/docs_assets/Dashboard-Simple.png)
 
 1. **Real-Time Map** — Geographic overview of all bins, color-coded: green (empty/mid), yellow (filling), red (critical).
