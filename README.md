@@ -158,11 +158,11 @@ Distance sensor (every 2s)
 
 ```bash
 # Board app
-git clone https://github.com/LilDebussy/Smart-Bin
+git clone https://github.com/LilDebussy/SmartBins-Frontend
 cd smart-bins
 
 # Backend (separate repo)
-git clone https://github.com/LilDebussy/backend/commit/60291f1a7c4fd218a5d8681a0a68c70206fdd348
+git clone https://github.com/LilDebussy/SmartBins-Backend
 cd smart-bins-backend && npm install && node index.js
 ```
 
