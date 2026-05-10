@@ -1,0 +1,41 @@
+# Python
+python/__pycache__/
+python/*.pyc
+python/*.pyo
+*.pyc
+*.pyo
+__pycache__/
+*.egg-info/
+.env
+.venv
+venv/
+ 
+# Arduino build cache
+sketch/build/
+.arduino15/
+*.elf
+*.hex
+*.bin
+*.map
+ 
+# Arduino CLI
+.cache/
+ 
+# App Lab
+.app-lab/
+*.log
+ 
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+ 
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+ 
+# Assets — exclude heavy generated files
+assets/libs/
