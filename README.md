@@ -116,6 +116,14 @@ Lightweight **Express** server running on Railway. Holds bin state in memory and
 4. **Wildlife Incidents** — Timestamped log of animal detections with severity levels relative to historical averages.
 5. **Historical Trends** — Per-bin fill rate history used to optimize collection schedules and cut unnecessary pickups.
 
+## AI Model
+
+![Dashboard](./assets/docs_assets/web-ui.png)
+
+The detection model runs on **Edge Impulse**, trained on custom datasets for waste classification and urban pest detection.
+
+Detection uses a **10-frame consensus filter**: a label must appear in 10 consecutive frames before triggering any hardware action, eliminating false positives at runtime without retraining.
+
 ## How It Works
 
 ```
@@ -207,12 +215,6 @@ smart-bins/
 ├── app.yaml                 # App Lab configuration
 └── README.md
 ```
-
-## AI Model
-
-The detection model runs on **Edge Impulse**, trained on custom datasets for waste classification and urban pest detection.
-
-Detection uses a **10-frame consensus filter**: a label must appear in 10 consecutive frames before triggering any hardware action, eliminating false positives at runtime without retraining.
 
 ## Team
 
