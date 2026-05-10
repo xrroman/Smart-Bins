@@ -3,7 +3,7 @@
 > Qualcomm Challenge · InterHack BCN
 > Intelligent, connected, and built to keep cities clean.
 
-![Smart-Bins Demo](./assets/docs_assets/launch-app.png)
+![Dashboard](./assets/docs_assets/Dashboard-avanzado.png)
 
 ## What is Smart-Bins?
 
@@ -71,7 +71,7 @@ A real-time web platform gives sanitation teams full visibility into every bin: 
 | **Qualcomm QRB2210** | On-device AI inference |
 | **STM32U585** | Real-time hardware control |
 | **Logitech Brio 105** | Waste and animal detection camera |
-| **Modulino Distance (VL53L4CD)** | Fill-level measurement  |
+| **Modulino Distance (VL53L4CD)** | Fill-level measurement |
 | **Modulino Pixels ×4** | LED alert and classification indicators |
 | **Modulino Buzzer** | Acoustic animal deterrent |
 
@@ -107,7 +107,8 @@ Lightweight **Express** server running on Railway. Holds bin state in memory and
 
 ## The Dashboard
 
-![Dashboard](./assets/docs_assets/hardware-setup.png)
+![Dashboard](./assets/docs_assets/Dashboard-avanzado.png)
+![Simple Dashboard](./assets/docs_assets/Dashboard-Simple.png)
 
 1. **Real-Time Map** — Geographic overview of all bins, color-coded: green (empty/mid), yellow (filling), red (critical).
 2. **Deposit Status** — Fill level per waste fraction: Glass, Plastic, Paper, Organic, General.
@@ -149,11 +150,11 @@ Distance sensor (every 2s)
 
 ```bash
 # Board app
-git clone https://github.com/your-org/smart-bins.git
+git clone https://github.com/LilDebussy/Smart-Bin
 cd smart-bins
 
 # Backend (separate repo)
-git clone https://github.com/your-org/smart-bins-backend.git
+git clone https://github.com/LilDebussy/backend/commit/60291f1a7c4fd218a5d8681a0a68c70206fdd348
 cd smart-bins-backend && npm install && node index.js
 ```
 
@@ -215,7 +216,7 @@ Detection uses a **10-frame consensus filter**: a label must appear in 10 consec
 
 ## Team
 
-Built at **InterHack BCN** · Qualcomm Challenge. -- **Race Condition**
+Built at **InterHack BCN** · Qualcomm Challenge — **Race Condition**
 - Lucia Acedo
 - Juan Carlos Diaz
 - Xavier Román

@@ -395,11 +395,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/vl53l4cd_api.cpp",
+   "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/platform.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4CD/vl53l4cd_api.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4CD/platform.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/vl53l4cd_api.cpp"
+  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/platform.cpp"
  },
  {
   "directory": "/",
@@ -462,11 +462,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/platform.cpp",
+   "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/vl53l4cd_api.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4CD/platform.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4CD/vl53l4cd_api.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/platform.cpp"
+  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4CD_1.0.5_7e2845a3c673dda2/STM32duino VL53L4CD/src/vl53l4cd_api.cpp"
  },
  {
   "directory": "/",
@@ -596,11 +596,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/vl53l4ed_api.cpp",
+   "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/platform.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4ED/vl53l4ed_api.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4ED/platform.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/vl53l4ed_api.cpp"
+  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/platform.cpp"
  },
  {
   "directory": "/",
@@ -663,11 +663,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/platform.cpp",
+   "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/vl53l4ed_api.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4ED/platform.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/libraries/STM32duino VL53L4ED/vl53l4ed_api.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/platform.cpp"
+  "file": "/home/arduino/.arduino15/internal/STM32duino_VL53L4ED_1.0.1_aec71b2071ab306b/STM32duino VL53L4ED/src/vl53l4ed_api.cpp"
  },
  {
   "directory": "/",

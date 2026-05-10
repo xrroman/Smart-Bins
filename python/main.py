@@ -26,8 +26,6 @@ label_counters       = defaultdict(int)
 ui               = WebUI()
 detection_stream = VideoObjectDetection(confidence=0.5, debounce_sec=0.0)
 
-# ── helpers ───────────────────────────────────────────────────────────────────
-
 def _reset_counters():
     label_counters.clear()
 
@@ -79,8 +77,6 @@ def _post_distance(measure: int):
     except Exception as e:
         print(f"API error: {e}")
 
-# ── detections ────────────────────────────────────────────────────────────────
-
 def _on_detections(detections: dict):
     for key, values in detections.items():
         for value in values:
@@ -123,8 +119,6 @@ def _override_th(sid, threshold):
 
 ui.on_message("override_th", _override_th)
 detection_stream.on_detect_all(_on_detections)
-
-# ── main loop ─────────────────────────────────────────────────────────────────
 
 def loop():
     time.sleep(2)
