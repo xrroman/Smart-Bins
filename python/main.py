@@ -6,31 +6,35 @@ from collections import defaultdict
 import time
 import requests
 
-ANIMAL_LABELS  = {"rubber-ducky"}
-WASTE_LABELS   = {"verde": 1, "amarillo": 2, "azul": 3}
-API_ENDPOINT   = "https://backend-production-1353.up.railway.app/api/update-bin"
-API_HEADERS    = {"Content-Type": "application/json"}
+ANIMAL_LABELS        = {"rubber-ducky"}
+WASTE_LABELS         = {"verde": 1, "amarillo": 2, "azul": 3}
+API_ENDPOINT         = "https://backend-production-1353.up.railway.app/api/update-bin"
+API_HEADERS          = {"Content-Type": "application/json"}
 
-FULL_BIN_MM    = 100
-HALF_BIN_MM    = 250
-ALERT_DURATION = 10
-BUZZ_FREQ      = 262
-TRIGGER_COUNT  = 10
+FULL_BIN_MM          = 100
+HALF_BIN_MM          = 250
+ALERT_DURATION       = 10
+BUZZ_FREQ            = 262
+TRIGGER_COUNT_ANIMAL = 15
+TRIGGER_COUNT_WASTE  = 5
 
-alert_until    = 0
-label_counters = defaultdict(int)
+alert_until          = 0
+animal_led_on        = False
+waste_led_code       = 0
+label_counters       = defaultdict(int)
 
 ui               = WebUI()
 detection_stream = VideoObjectDetection(confidence=0.5, debounce_sec=0.0)
 
-# ── helpers ──────────────────────────────────────────────────────────────────
+# ── helpers ───────────────────────────────────────────────────────────────────
 
 def _reset_counters():
     label_counters.clear()
 
 def _set_alert():
-    global alert_until
-    alert_until = time.time() + ALERT_DURATION
+    global alert_until, animal_led_on
+    alert_until   = time.time() + ALERT_DURATION
+    animal_led_on = True
     try:
         Bridge.call("setAnimalLed", 1, timeout=3)
         Bridge.call("setBuzzer", BUZZ_FREQ, 500, timeout=3)
@@ -38,10 +42,26 @@ def _set_alert():
         print(f"Bridge error (alert): {e}")
 
 def _clear_alert():
+    global animal_led_on
+    if not animal_led_on:
+        return
     try:
         Bridge.call("setAnimalLed", 0, timeout=3)
+        animal_led_on = False  # solo actualizar si tuvo éxito
     except Exception as e:
         print(f"Bridge error (clear alert): {e}")
+        time.sleep(0.5)
+
+def _set_waste_led(code: int):
+    global waste_led_code
+    if waste_led_code == code:
+        return
+    try:
+        Bridge.call("setWasteLed", code, timeout=3)
+        waste_led_code = code  # solo actualizar si tuvo éxito
+    except Exception as e:
+        print(f"Bridge error (waste led): {e}")
+        time.sleep(0.5)
 
 def _post_distance(measure: int):
     try:
@@ -74,11 +94,18 @@ def _on_detections(detections: dict):
                 print(f"UI error: {e}")
 
         label = key.lower()
-        if label in ANIMAL_LABELS or label in WASTE_LABELS:
-            label_counters[label] += 1
-            print(f"[counter] {label}: {label_counters[label]}/{TRIGGER_COUNT}")
+        trigger = None
 
-            if label_counters[label] >= TRIGGER_COUNT:
+        if label in ANIMAL_LABELS:
+            trigger = TRIGGER_COUNT_ANIMAL
+        elif label in WASTE_LABELS:
+            trigger = TRIGGER_COUNT_WASTE
+
+        if trigger is not None:
+            label_counters[label] += 1
+            print(f"[counter] {label}: {label_counters[label]}/{trigger}")
+
+            if label_counters[label] >= trigger:
                 print(f"[trigger] {label} fired!")
                 _reset_counters()
 
@@ -86,10 +113,7 @@ def _on_detections(detections: dict):
                     _set_alert()
 
                 if label in WASTE_LABELS:
-                    try:
-                        Bridge.call("setWasteLed", WASTE_LABELS[label], timeout=3)
-                    except Exception as e:
-                        print(f"Bridge error (waste led): {e}")
+                    _set_waste_led(WASTE_LABELS[label])
 
 def _override_th(sid, threshold):
     try:
@@ -126,10 +150,6 @@ def loop():
         return
 
     _clear_alert()
-
-    try:
-        Bridge.call("setWasteLed", 0, timeout=3)
-    except Exception as e:
-        print(f"Bridge error (waste off): {e}")
+    _set_waste_led(0)
 
 App.run(user_loop=loop)

@@ -24,8 +24,9 @@ void setup() {
 }
 
 void loop() {
+  Bridge.update();  // procesar Bridge más frecuentemente
   if (distance.available()) {
     lastMeasure = distance.get();
   }
-  delay(100);
+  delay(20);  // bajado de 100ms a 20ms
 }

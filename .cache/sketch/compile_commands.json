@@ -1100,11 +1100,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/abi.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/USB.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/abi.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/USB.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/abi.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/USB.cpp"
  },
  {
   "directory": "/",
@@ -1151,11 +1151,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/USB.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/abi.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/USB.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/abi.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/USB.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/abi.cpp"
  },
  {
   "directory": "/",
@@ -1559,57 +1559,6 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/itoa.cpp",
-   "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/itoa.cpp.o"
-  ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/itoa.cpp"
- },
- {
-  "directory": "/",
-  "arguments": [
-   "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-g++",
-   "-g",
-   "-Os",
-   "-std=gnu++17",
-   "-c",
-   "-D_PICOLIBC_CTYPE_SMALL=1",
-   "-w",
-   "-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
-   "-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/toolchain/zephyr_stdint.h",
-   "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
-   "-fno-exceptions",
-   "-fno-rtti",
-   "-fno-threadsafe-statics",
-   "-fno-unwind-tables",
-   "-fno-use-cxa-atexit",
-   "-lstdc++",
-   "-lsupc++",
-   "-lnosys",
-   "-nostdlib",
-   "-lstdc++",
-   "-lsupc++",
-   "-lm",
-   "-fno-exceptions",
-   "-fno-rtti",
-   "-fdata-sections",
-   "-ffunction-sections",
-   "-fno-unwind-tables",
-   "-MMD",
-   "-mcpu=cortex-m33",
-   "-mfloat-abi=hard",
-   "-mfpu=fpv5-sp-d16",
-   "-DARDUINO=10607",
-   "-DARDUINO_UNO_Q",
-   "-DARDUINO_ARCH_ZEPHYR",
-   "-DARDUINO_ARCH_ZEPHYR",
-   "-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
-   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino",
-   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
-   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated",
-   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
-   "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
-   "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/String.cpp",
    "-o",
    "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/api/String.cpp.o"
@@ -1661,11 +1610,11 @@
    "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
    "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
    "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
-   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/itoa.cpp",
    "-o",
-   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/main.cpp.o"
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/itoa.cpp.o"
   ],
-  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp"
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/itoa.cpp"
  },
  {
   "directory": "/",
@@ -1701,6 +1650,57 @@
    "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/llext_wrappers.c"
   ],
   "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/llext_wrappers.c"
+ },
+ {
+  "directory": "/",
+  "arguments": [
+   "/home/arduino/.arduino15/packages/zephyr/tools/arm-zephyr-eabi/0.16.8/bin/arm-zephyr-eabi-g++",
+   "-g",
+   "-Os",
+   "-std=gnu++17",
+   "-c",
+   "-D_PICOLIBC_CTYPE_SMALL=1",
+   "-w",
+   "-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/generated/zephyr/autoconf.h",
+   "-imacros/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/llext-edk/include/zephyr/include/zephyr/toolchain/zephyr_stdint.h",
+   "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/cxxflags.txt",
+   "-fno-exceptions",
+   "-fno-rtti",
+   "-fno-threadsafe-statics",
+   "-fno-unwind-tables",
+   "-fno-use-cxa-atexit",
+   "-lstdc++",
+   "-lsupc++",
+   "-lnosys",
+   "-nostdlib",
+   "-lstdc++",
+   "-lsupc++",
+   "-lm",
+   "-fno-exceptions",
+   "-fno-rtti",
+   "-fdata-sections",
+   "-ffunction-sections",
+   "-fno-unwind-tables",
+   "-MMD",
+   "-mcpu=cortex-m33",
+   "-mfloat-abi=hard",
+   "-mfpu=fpv5-sp-d16",
+   "-DARDUINO=10607",
+   "-DARDUINO_UNO_Q",
+   "-DARDUINO_ARCH_ZEPHYR",
+   "-DARDUINO_ARCH_ZEPHYR",
+   "-DARDUINO_LIBRARY_DISCOVERY_PHASE=0",
+   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino",
+   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
+   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated",
+   "-I/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/api/deprecated-avr-comp",
+   "-iprefix/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx",
+   "@/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/variants/arduino_uno_q_stm32u585xx/includes.txt",
+   "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp",
+   "-o",
+   "/home/arduino/ArduinoApps/microwasteanimals/.cache/sketch/core/main.cpp.o"
+  ],
+  "file": "/home/arduino/.arduino15/packages/arduino/hardware/zephyr/0.55.0/cores/arduino/main.cpp"
  },
  {
   "directory": "/",
