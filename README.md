@@ -1,175 +1,223 @@
-# Detect Objects on Camera
+# Smart-Bins — AI-Powered Waste and Plagues Management
 
-The **Detect Objects on Camera** example lets you detect objects on a live feed from a USB camera and visualize bounding boxes around the detections in real-time.
+> Qualcomm Challenge · InterHack BCN
+> Intelligent, connected, and built to keep cities clean.
 
-**Note:** This example must be run in **Network Mode** in the Arduino App Lab, since it requires a USB-C hub and a USB camera.
+![Smart-Bins Demo](./assets/docs_assets/launch-app.png)
 
-![Detect Objects on Camera](assets/docs_assets/video-object-detection.png)
+## What is Smart-Bins?
 
-This example uses a pre-trained model to detect objects on a live video feed from a camera. The workflow involves continuously getting the frames from a USB camera, processing it through an AI model using the `video_objectdetection` Brick, and displaying the bounding boxes around detections. The App is managed from an interactive web interface.
+Smart-Bins is an edge AI system that automates waste classification, deters urban wildlife, and gives sanitation teams real-time visibility into every bin across the city.
 
-## Brick Used
+Built on the **Arduino Uno Q** with **Qualcomm on-device AI**, Smart-Bins tackles two of Barcelona's biggest urban sustainability challenges: incorrect recycling and animal infestations near waste collection points.
 
-The example uses the following Bricks:
+## The Problem
 
-- `web_ui`: Brick to create a web interface to display the classification results and model controls.
-- `video_objectdetection`: Brick to classify objects within a live video feed from a camera.
-  
-## Hardware and Software Requirements
+| Problem | Impact |
+|---|---|
+| Incorrect waste sorting | Contaminates recyclable streams, increases landfill |
+| Animal infestations near bins | Public health risk, urban degradation |
+| Inefficient collection routes | Wasted resources, overflowing bins |
+
+## Our Solution
+
+### Automatic Waste Classification
+A top-mounted camera analyzes waste as it is deposited. A custom-trained AI model classifies it in real time into one of five categories — **Glass, Paper/Cardboard, Plastic/Packaging, Organic, or General Waste** — and mechanically redirects it to the correct bag.
+
+### Animal Detection and Deterrence
+The same camera monitors the surrounding perimeter at ground level. When a rat, pigeon, or wild boar is detected, the system activates **LED strobes and acoustic deterrents** to scare off the animal, safely and without harm.
+
+### IoT Monitoring Dashboard
+A real-time web platform gives sanitation teams full visibility into every bin: fill levels by waste type, animal activity alerts, and predictions on when each bin will need to be collected.
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────┐
+│                 Arduino Uno Q                   │
+│                                                 │
+│  ┌─────────────┐       ┌─────────────────────┐  │
+│  │  STM32U585  │◄─────►│  Qualcomm QRB2210   │  │
+│  │    (MCU)    │ Bridge│  Linux + AI Runtime │  │
+│  │  C++ Sketch │       │  Python App         │  │
+│  └──────┬──────┘       └──────────┬──────────┘  │
+│         │                         │             │
+│   Modulino Pixels           Logitech Camera     │
+│   Modulino Buzzer           Edge Impulse Model  │
+│   Modulino Distance         WebUI Dashboard     │
+└─────────────────────────────────────────────────┘
+                         │
+                    REST API
+                         │
+              ┌──────────▼──────────┐
+              │   Express API        │
+              │   Node.js · Railway  │
+              └──────────┬──────────┘
+                         │
+              ┌──────────▼──────────┐
+              │   Dashboard          │
+              │   Astro + React      │
+              │   Vercel             │
+              └─────────────────────┘
+```
+
+## Hardware and Tech Stack
 
 ### Hardware
 
-- [Arduino® UNO Q](https://store.arduino.cc/products/uno-q)
-- USB camera (x1)
-- USB-C® hub adapter with external power (x1)
-- A power supply (5 V, 3 A) for the USB hub (e.g. a phone charger)
-- Personal computer with internet access
+| Component | Purpose |
+|---|---|
+| **Arduino Uno Q** | Dual-processor main board (MCU + MPU) |
+| **Qualcomm QRB2210** | On-device AI inference |
+| **STM32U585** | Real-time hardware control |
+| **Logitech Brio 105** | Waste and animal detection camera |
+| **Modulino Distance (VL53L4CD)** | Fill-level measurement  |
+| **Modulino Pixels ×4** | LED alert and classification indicators |
+| **Modulino Buzzer** | Acoustic animal deterrent |
 
 ### Software
 
-- Arduino App Lab
+| Layer | Tech |
+|---|---|
+| MCU firmware | C++ / Arduino (Zephyr RTOS) |
+| MPU application | Python 3 / Arduino App Lab |
+| AI inference | Edge Impulse — custom object detection model |
+| MCU↔MPU communication | Arduino RouterBridge (RPC) |
+| Backend API | Node.js + Express, deployed on Railway |
+| Dashboard | Astro + React, deployed on Vercel |
 
-## How to Use the Example
+## Backend API
 
-1. Connect the USB-C hub to the UNO Q and the USB camera.
-  ![Hardware setup](assets/docs_assets/hardware-setup.png)
-2. Attach the external power supply to the USB-C hub to power everything.
-3. Run the App.
-   ![Arduino App Lab - Run App](assets/docs_assets/launch-app.png)
-4. The App should open automatically in the web browser. You can open it manually via `<board-name>.local:7000`.
-5. Position any object in front of the camera and watch as the App detects and recognizes them.
+Lightweight **Express** server running on Railway. Holds bin state in memory and serves it to the dashboard.
 
-Try with one of the following objects for a special reaction:
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/update-bin` | Push bin fill level from the board |
+| `GET` | `/api/bins` | Get current state of all bins |
 
-- Cat
-- Cell phone
-- Clock
-- Cup
-- Dog
-- Potted plant
+**POST `/api/update-bin`**
+```json
+{
+  "id": "1",
+  "postDistance": 245
+}
+```
 
-![Example of special reaction](assets/docs_assets/special-detection.png)
+**GET `/api/bins`** returns the in-memory state of every registered bin including fill level, last update timestamp, and animal incident count.
 
-## How it Works
+## The Dashboard
 
-This example hosts a Web UI where we can see the video input from the camera connected via USB. The video stream is then processed using the `video_objectdetection` Brick. When an object is detected, it is logged along with the confidence score (e.g. 95% potted plant).
+![Dashboard](./assets/docs_assets/hardware-setup.png)
 
-Here is a brief explanation of the full-stack application:
+1. **Real-Time Map** — Geographic overview of all bins, color-coded: green (empty/mid), yellow (filling), red (critical).
+2. **Deposit Status** — Fill level per waste fraction: Glass, Plastic, Paper, Organic, General.
+3. **Predictive Analytics** — Estimates when each bin will reach capacity based on fill rate. Example: *"Will be full at 22:00 — 10h before scheduled collection."*
+4. **Wildlife Incidents** — Timestamped log of animal detections with severity levels relative to historical averages.
+5. **Historical Trends** — Per-bin fill rate history used to optimize collection schedules and cut unnecessary pickups.
 
-### 🔧 Backend (main.py)
+## How It Works
 
-- Initializes the app Bricks:
-  - **WebUI** (`ui = WebUI()`): channel to push messages to the frontend.
-  - **VideoObjectDetection** (`detection_stream = VideoObjectDetection()`): runs object detection on the video stream.
+```
+Camera frame
+     │
+     ▼
+Edge Impulse Model
+     │
+     ├── Waste label (verde / amarillo / azul)
+     │         └── setWasteLed(color) → Modulino Pixels
+     │
+     └── Animal detected
+               └── 10-frame consensus filter
+                         └── setAnimalLed(ON) + Buzzer 10s
+                                   └── POST /api/update-bin
 
-- Wires detection events to actions using callbacks:
-  - `on_detect_all(send_detections_to_ui)`: sends `{ content, confidence, timestamp }` via `ui.send_message("detection", ...)`
+Distance sensor (every 2s)
+     └── Fill level → Dashboard + POST /api/update-bin
+```
 
-- **Controls**:
-  - Listens for `override_th` → updates detection threshold
+## Getting Started
 
-- Exposes:
-  - **Realtime messaging**: publishes detection updates to the frontend via `ui.send_message("detection", message=entry)` so the UI can display live detections.
+### Prerequisites
 
-- Runs with `App.run()` which starts the internal event loop and keeps the detection stream and UI messaging alive.
+- Arduino Uno Q
+- `arduino-cli` + `arduino-app-cli`
+- Python 3.11+
+- ADB (Android Debug Bridge)
+- Node.js 18+
 
----
+### 1. Clone the repositories
 
-### 💻 Frontend (index.html + app.js)
+```bash
+# Board app
+git clone https://github.com/your-org/smart-bins.git
+cd smart-bins
 
-- **Video feed**
-  - iframe auto-retries /embed until the camera stream is available
+# Backend (separate repo)
+git clone https://github.com/your-org/smart-bins-backend.git
+cd smart-bins-backend && npm install && node index.js
+```
 
-- **Controls**
-  - Slider, numeric input, and reset button adjust threshold live
-  - Updates sent to backend with: `socket.emit("override_th", value)`
+### 2. Connect to the board
 
-- **Feedback**
-  - Shows GIF + text for known objects (dog, cat, cup, cell phone, clock, potted plant)
+```bash
+adb devices
+adb shell
+bash
+```
 
-- **Recent detections**
-  - Displays the last 5 detections with percentage and timestamp
+### 3. Deploy the app
 
-- **Connection status**
-  - Shows an error message if the WebSocket connection drops
+```bash
+arduino-app-cli app start /home/arduino/ArduinoApps/microwasteanimals
+```
 
----
+### 4. Compile and upload the sketch
 
-## Understanding the Code
+```bash
+cd sketch
+arduino-cli compile --profile default
+arduino-cli upload --profile default
+```
 
-Once the application is running, you can open it in your browser by navigating to `<BOARD-IP-ADDRESS>:7000`.  
-At that point, the device begins performing the following:
+### 5. Forward the dashboard port
 
-- Serving the **object detection UI** and exposing realtime transports.
+```bash
+adb forward tcp:7000 tcp:7000
+```
 
-    The UI is hosted by the `WebUI` Brick and communicates with the backend via WebSocket (Socket.IO).  
-    The backend pushes detection messages whenever new objects are found.
+Open [http://localhost:7000](http://localhost:7000).
 
-    ```python
-    from arduino.app_bricks.web_ui import WebUI
-    from arduino.app_bricks.video_objectdetection import VideoObjectDetection
-    from datetime import datetime, UTC
+## Project Structure
 
-    ui = WebUI()
-    detection_stream = VideoObjectDetection()
+```
+smart-bins/
+├── sketch/                  # MCU firmware (C++ / Arduino)
+│   ├── sketch.ino
+│   ├── distance.h           # ToF sensor — fill level
+│   ├── leds.h               # 4× Modulino Pixels control
+│   ├── buzzer.h             # Acoustic deterrent
+│   └── sketch.yaml          # Board profile and dependencies
+├── python/                  # MPU application (Python)
+│   └── main.py              # AI detections + Bridge + API
+├── assets/                  # Web UI (served by WebUI brick)
+│   ├── index.html
+│   ├── app.js
+│   └── style.css
+├── app.yaml                 # App Lab configuration
+└── README.md
+```
 
-    ui.on_message("override_th",
-                  lambda sid, threshold: detection_stream.override_threshold(threshold))
+## AI Model
 
-    detection_stream.on_detect_all(send_detections_to_ui)
-    ```
+The detection model runs on **Edge Impulse**, trained on custom datasets for waste classification and urban pest detection.
 
-    - `detection` (WebSocket message): JSON entry with label, confidence, and timestamp sent to the UI.  
-    - `override_th` (WebSocket → backend): adjusts the confidence threshold live.
+Detection uses a **10-frame consensus filter**: a label must appear in 10 consecutive frames before triggering any hardware action, eliminating false positives at runtime without retraining.
 
-- Processing detections and broadcasting updates.
+## Team
 
-    When the model detects objects, the backend:
-
-    1. Iterates over all detected objects with their confidence scores.  
-    2. Attaches an ISO 8601 UTC timestamp.  
-    3. Publishes each detection as a JSON entry to the frontend channel `detection`.
-
-    ```python
-    def send_detections_to_ui(detections: dict):
-        for key, value in detections.items():
-            entry = {
-                "content": key,
-                "confidence": value,
-                "timestamp": datetime.now(UTC).isoformat()
-            }
-            ui.send_message("detection", message=entry)
-    ```
-
-- Rendering and interacting on the frontend.
-
-    The **index.html + app.js** bundle defines the interface:
-
-    - A **video feed iframe** auto-retries `/embed` until the camera stream is live.  
-    - A **confidence control** (slider + input + reset) lets the user adjust the detection threshold.  
-    - A **feedback section** shows animations and messages for known classes (cat, dog, cup, clock, potted plant, etc.).  
-    - A **recent detections list** displays the latest 5 detections with percentage and timestamp.  
-
-    ```javascript
-    const socket = io(`http://${window.location.host}`);
-
-    socket.on('detection', (message) => {
-        printDetection(message);   // update history
-        renderDetections();        // redraw the list
-        updateFeedback(message);   // update feedback panel
-    });
-    ```
-
-    - `detection` (WebSocket): received whenever the backend publishes results.  
-    - The slider and input dynamically update the backend threshold (`override_th`).  
-    - If the connection drops, an error banner is shown (`error-container`).  
-
-- Executing the event loop.
-
-    Finally, the backend keeps everything alive with:
-
-    ```python
-    App.run()
-    ```
-
-    This maintains the object detection stream, callback hooks, threshold overrides, and WebSocket communication with the frontend.
+Built at **InterHack BCN** · Qualcomm Challenge. -- **Race Condition**
+- Lucia Acedo
+- Juan Carlos Diaz
+- Xavier Román
+- Joan Aranda
+- Nil Babot
