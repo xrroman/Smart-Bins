@@ -220,7 +220,7 @@ smart-bins/
 
 Built at **InterHack BCN** · Qualcomm Challenge — **Race Condition**
 - Lucia Acedo
-- Juan Carlos Diaz
+- Juan Carlos Díaz
 - Xavier Román
 - Joan Aranda
 - Nil Babot
