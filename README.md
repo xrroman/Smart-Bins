@@ -1,4 +1,4 @@
-# Smart-Bins — AI-Powered Waste and Plagues Management
+# Smart-Bins — AI - Powered Waste and Plagues Management
 
 > Qualcomm Challenge · InterHack BCN
 > Intelligent, connected, and built to keep cities clean.
